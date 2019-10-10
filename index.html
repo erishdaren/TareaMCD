@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maximo Comun Divisor</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Máximo Comun Divisor y Minimo Común Múltiplo</title>
 <link rel="stylesheet" href="style.css">
 <script src="app.js"></script>
-
 </head>
 <body>
-    <div class="contenedor">
-        <h1>Maximo Comun Divisior</h1>
-            <div class="calcular">
-                <form action="" method="get">
-                    <input type="number" name="" id="" value="" placeholder="inserta un numero">
-                    
-                </form>
-            </div>
-
-    </div>
+        <form class="form" id="mcmMCD" name="mcmMCD" style="padding-top: 1rem">
+            <label htmlfor="dataInput">Introduzca números enteros separados por coma: </label>
+            <br>
+            <input type="text" id="dataInput" name="dataInput" size="30" placeholder="32,12,96" pattern="^\d+[0-9,]+\d+$" required/>
+            <button class="boton"type="button" onclick="calcularMCDmcm()">Calcular</button>
+            <br><br>
+            <div class="res" id="MCD"></div>
+            <div class="res" id="mcm"></div>
+        </form>
 </body>
 </html>
