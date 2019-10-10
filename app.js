@@ -1,6 +1,3 @@
-
-
-
 function MCD(){
     if (arguments.length<2) 
         return false;
@@ -21,8 +18,30 @@ function mcm(a,b){
     return mcm.apply(window,arr);
 }
 
-console.log(MCD(36,644));
+/*Función para recoger el valor de 'input' y extraer los números y descartar las comas,
+   convierte los números en enteros y los inserta en un array*/
+function calcularMCDmcm() {
+    var input = document.getElementById('dataInput').value;
+    var numbers = []; //Array que almacenará los números proporcionados por el usuario
+    var sp = 0;  //Indicador para usar como 'start position' del metodo substring
+
+// El siguiente bucle recorre cada caracter de nuestro string
+  for(var i = 0; i < input.length; i++) {
+    if (input[i] == ',') {  //Verificamos si es una coma (,)
+      numbers.push(parseInt(input.substring(sp,i))); // extraemos el número y lo agregamos al array
+      sp = i + 1; //Marcamos el nuevo 'start-position'
+    } else if (i == input.length - 1) { //Si llegamos al final de la cadena
+      numbers.push(parseInt(input.substring(sp)));  //Extraemos el último numero y lo agregamos al array
+    }
+  }
+
+//Usar el método 'apply' con nuestras funciones MCD y mcm
+document.getElementById('MCD').innerText = 'El MCD es: ' +  MCD.apply(window, numbers);
+document.getElementById('mcm').innerText = 'El mcm es: ' +  mcm.apply(window, numbers);
+
+console.log(MCD(36, 12, 96));
 //Esto es lo que quiero cambiar
 
-console.log(mcm.apply(window,[36,89.5]));
+console.log(mcm.apply(window,[36, 12, 96]));
 //Esto es lo que quiero cambiar
+}
